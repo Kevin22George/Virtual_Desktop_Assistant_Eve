@@ -1,0 +1,13 @@
+flask
+webview
+speech_recognition
+pywhatkit
+pyttsx3
+os
+webbrowser
+googlesearch
+ipyjokes
+random
+datetime
+wikipedia
+PyPDF2
