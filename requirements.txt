@@ -11,3 +11,5 @@ random
 datetime
 wikipedia
 PyPDF2
+pyscreenshot
+time
