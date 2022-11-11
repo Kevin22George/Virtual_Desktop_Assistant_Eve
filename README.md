@@ -1,5 +1,5 @@
 # Objective
-Eve is a basic virtual desktop assistant built to perform the required tasks efficiently. The aim here is to improve the efficieny of the desktop assistant in performing tasks with ease and with speed.
+Eve is a basic virtual desktop assistant built to perform the required tasks efficiently. The aim here is to improve the efficiency of the desktop assistant in performing tasks with ease and with speed.
 
 # Description
 **Below are the steps to follow:**
