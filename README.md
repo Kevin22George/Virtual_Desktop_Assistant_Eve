@@ -32,4 +32,4 @@ Eve is a basic virtual desktop assistant built to perform the required tasks eff
 ### - Success (2<sup>nd</sup> half)
 ![Sucess page - second half of the page](https://user-images.githubusercontent.com/104430325/200963570-9a2d78fe-5693-4a52-9edc-b71df7f43164.jpg)
 ### - Main (Eve)
-![Main page - Eve](https://user-images.githubusercontent.com/104430325/200963580-fdf5ab89-b60c-4046-b4cb-c97c6bee2adb.jpg)
+![Main page - Eve](https://user-images.githubusercontent.com/104430325/201472603-f7ec81c7-df3e-464c-a977-602969e50ab5.jpg)
