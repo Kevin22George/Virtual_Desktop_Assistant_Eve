@@ -8,7 +8,19 @@ Eve is a basic virtual desktop assistant built to perform the required tasks eff
 3. Successful account creation - user's entered details will be displayed and are to be checked before proceeding to the next step.
 4. Main screen - users will be greeted with their name and can now start talking to Eve and get tasks done accordingly.
 
-**\*Future updates will be released\***
+**Below are some of the following keywords that must be included in your commands:**
+1. 'open word' or 'open microsoft word' - opens Microsoft Word
+2. 'search' and 'youtube' - searches on YouTube
+3. 'open google' - opens google
+4. 'website' - searches and opens the website on your browser
+5. 'tell me a joke' or 'make me laugh' or 'funny' - voice assistant gives jokes
+6. 'time' - gives current time
+7. 'question' or 'answer' - gives answers with the help of Wikipedia
+8. 'pdf' - reads a page of a .pdf file by the user's choice of page selection
+9. 'google search' or 'google' - does google searches
+10. 'take \*number\* screenshots' - takes screenshots based on the user's choice of number and each screenshot has an interval of  4 seconds
+
+**\*FUTURE UPDATES WILL BE RELEASED\***
 
 # Screenshots - Pages
 ### - Sign In
