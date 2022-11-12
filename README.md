@@ -8,7 +8,7 @@ Eve is a basic virtual desktop assistant built to perform the required tasks eff
 3. **Successful Account Creation -** user's entered details will be displayed and are to be checked before proceeding to the next step.
 4. **Main Screen -** users will be greeted with their name and can now start talking to Eve and get tasks done accordingly.
 
-**Below are some of the following keywords that must be included in your commands:**
+**Below are the following keywords that must be included in your commands:**
 1. 'open word' or 'open microsoft word' - opens Microsoft Word
 2. 'search' and 'youtube' - searches on YouTube
 3. 'open google' - opens Google
