@@ -11,13 +11,13 @@ Eve is a basic virtual desktop assistant built to perform the required tasks eff
 **Below are some of the following keywords that must be included in your commands:**
 1. 'open word' or 'open microsoft word' - opens Microsoft Word
 2. 'search' and 'youtube' - searches on YouTube
-3. 'open google' - opens google
+3. 'open google' - opens Google
 4. 'website' - searches and opens the website on your browser
 5. 'tell me a joke' or 'make me laugh' or 'funny' - voice assistant gives jokes
 6. 'time' - gives current time
 7. 'question' or 'answer' - gives answers with the help of Wikipedia
 8. 'pdf' - reads a page of a .pdf file by the user's choice of page selection
-9. 'google search' or 'google' - does google searches
+9. 'google search' or 'google' - perform Google searches
 10. 'take \*number\* screenshots' - takes screenshots based on the user's choice of number and each screenshot has an interval of  4 seconds
 
 **\*FUTURE UPDATES WILL BE RELEASED\***
