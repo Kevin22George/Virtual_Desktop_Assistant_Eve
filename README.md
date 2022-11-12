@@ -3,10 +3,10 @@ Eve is a basic virtual desktop assistant built to perform the required tasks eff
 
 # Description
 **Below are the steps to follow:**
-1. Sign in - for users who already has an account.
-2. Create an account/Sign up - new users need to create an account to gain access to the desktop assistant.
-3. Successful account creation - user's entered details will be displayed and are to be checked before proceeding to the next step.
-4. Main screen - users will be greeted with their name and can now start talking to Eve and get tasks done accordingly.
+1. **Sign In -** for users who already has an account.
+2. **Create An Account/Sign Up -** new users need to create an account to gain access to the desktop assistant.
+3. **Successful Account Creation -** user's entered details will be displayed and are to be checked before proceeding to the next step.
+4. **Main Screen -** users will be greeted with their name and can now start talking to Eve and get tasks done accordingly.
 
 **Below are some of the following keywords that must be included in your commands:**
 1. 'open word' or 'open microsoft word' - opens Microsoft Word
