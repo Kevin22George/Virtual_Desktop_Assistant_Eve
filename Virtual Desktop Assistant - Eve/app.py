@@ -11,6 +11,8 @@ import random
 import datetime
 import wikipedia
 from PyPDF2 import PdfFileReader
+import pyscreenshot as pyshot
+import time as t
 
 app = Flask(__name__)
 window = webview.create_window('Eve', app)
@@ -100,7 +102,7 @@ def main():
 
     try:
         with m as source:
-            r.adjust_for_ambient_noise(source, duration = .2)
+            r.adjust_for_ambient_noise(source, duration = 1)
             audio = r.listen(source)            
             user = r.recognize_google(audio).lower()
 
@@ -108,9 +110,17 @@ def main():
                 question1 = 'Opening word...'
                 speak(question1)
 
-                os.startfile('C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft Word 2010.lnk')       
-            
-                return render_template('main.html', question1 = f'{eve} {question1}', user = f'{you} {user.capitalize()}', question = f'{eve} {question}', greetings = greetings[2], info = info[0].capitalize() + '!')
+                os.startfile('C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Microsoft Office\Microsoft Word 2010.lnk')                        
+
+                convo = open('Virtual Desktop Assistant - Eve/static/data/conversation_record.txt', 'a')
+                convo.write(str(eve + ' ' + question))
+                convo.write('\n')
+                convo.write(str(you + ' ' + user.capitalize()))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + question1))
+                convo.write('\n')
+                convo.write('\n')
+                convo.close()
 
             elif 'search' in user and 'youtube' in user:
                 question1 = 'What would you like to search on youtube?'
@@ -122,19 +132,39 @@ def main():
                 search = 'Searching for ' + user1
                 speak(search)
 
-                pwk.playonyt(user1)
+                pwk.playonyt(user1)  
 
-                return render_template('main.html', search = f'{eve} {search}', question1 = f'{eve} {question1}', user = f'{you} {user.capitalize()}', user1 = f'{you} {user1}', question = f'{eve} {question}', greetings = greetings[2], info = info[0].capitalize() + '!')
+                convo = open('Virtual Desktop Assistant - Eve/static/data/conversation_record.txt', 'a')
+                convo.write(str(eve + ' ' + question))
+                convo.write('\n')
+                convo.write(str(you + ' ' + user.capitalize()))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + question1))
+                convo.write('\n')
+                convo.write(str(you + ' ' + user1.capitalize()))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + search))
+                convo.write('\n')
+                convo.write('\n')
+                convo.close()              
             
             elif 'open google' in user:
                 question1 = 'Opening google...'
                 speak(question1)
 
-                wb.open('https://www.google.com')
+                wb.open('https://www.google.com')      
 
-                return render_template('main.html', question1 = f'{eve} {question1}', user = f'{you} {user.capitalize()}', question = f'{eve} {question}', greetings = greetings[2], info = info[0].capitalize() + '!')
+                convo = open('Virtual Desktop Assistant - Eve/static/data/conversation_record.txt', 'a')
+                convo.write(str(eve + ' ' + question))
+                convo.write('\n')
+                convo.write(str(you + ' ' + user.capitalize()))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + question1))
+                convo.write('\n')
+                convo.write('\n')
+                convo.close()          
 
-            elif 'open' in user and 'website' in user or 'website' in user:
+            elif 'website' in user:
                 question1 = 'What website are you looking for?'
                 speak(question1) 
 
@@ -146,7 +176,19 @@ def main():
                 for link in search(user1, num=1, stop=1):
                     wb.open(link)
 
-                return render_template('main.html', question1 = f'{eve} {question1}', website = f'{eve} {website}', user = f'{you} {user.capitalize()}', user1 = f'{you} {user1}', question = f'{eve} {question}', greetings = greetings[2], info = info[0].capitalize() + '!')
+                convo = open('Virtual Desktop Assistant - Eve/static/data/conversation_record.txt', 'a')
+                convo.write(str(eve + ' ' + question))
+                convo.write('\n')
+                convo.write(str(you + ' ' + user.capitalize()))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + question1))
+                convo.write('\n')
+                convo.write(str(you + ' ' + user1.capitalize()))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + website))
+                convo.write('\n')
+                convo.write('\n')
+                convo.close()
 
             elif 'tell me a joke' in user or 'make me laugh' in user or 'funny' in user:
                 joke = pyjokes.get_joke()
@@ -156,14 +198,30 @@ def main():
                 review = random.choice(review_list)
                 speak(review)
 
-                return render_template('main.html', joke = f'{eve} {joke}', review = review, user = f'{you} {user.capitalize()}', question = f'{eve} {question}', greetings = greetings[2], info = info[0].capitalize() + '!')
+                convo = open('Virtual Desktop Assistant - Eve/static/data/conversation_record.txt', 'a')
+                convo.write(str(eve + ' ' + question))
+                convo.write('\n')
+                convo.write(str(you + ' ' + user.capitalize()))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + joke + ' ' + review))
+                convo.write('\n')
+                convo.write('\n')
+                convo.close()
 
             elif 'time' in user:                
                 time = datetime.datetime.now().strftime('%I:%M %p')
                 time_info = 'The time is ' + time
                 speak(time_info)
 
-                return render_template('main.html', time = f'{eve} {time_info}', user = f'{you} {user.capitalize()}', question = f'{eve} {question}', greetings = greetings[2], info = info[0].capitalize() + '!')
+                convo = open('Virtual Desktop Assistant - Eve/static/data/conversation_record.txt', 'a')
+                convo.write(str(eve + ' ' + question))
+                convo.write('\n')
+                convo.write(str(you + ' ' + user.capitalize()))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + time_info))
+                convo.write('\n')
+                convo.write('\n')
+                convo.close()
 
             elif 'question' in user or 'answer' in user:
                 question1 = 'What is your question?'
@@ -172,9 +230,21 @@ def main():
                 audio = r.listen(source)
                 user1 = r.recognize_google(audio).lower()
                 details = wikipedia.summary(user1, 1)
-                speak(details)   
+                speak(details)
 
-                return render_template('main.html', question1 = f'{eve} {question1}', details = f'{eve} {details}', user = f'{you} {user.capitalize()}', user1 = f'{you} {user1.capitalize()}', question = f'{eve} {question}', greetings = greetings[2], info = info[0].capitalize() + '!')
+                convo = open('Virtual Desktop Assistant - Eve/static/data/conversation_record.txt', 'a')
+                convo.write(str(eve + ' ' + question))
+                convo.write('\n')
+                convo.write(str(you + ' ' + user.capitalize()))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + question1))
+                convo.write('\n')
+                convo.write(str(you + ' ' + user1.capitalize()))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + details))
+                convo.write('\n')
+                convo.write('\n')
+                convo.close()
 
             elif 'pdf' in user:
                 question1 = 'What pdf file are you looking for?'
@@ -184,25 +254,108 @@ def main():
                 user1 = r.recognize_google(audio).lower()
                 user1 = user1.capitalize()
                 file = open('Virtual Desktop Assistant - Eve/static/pdf/' + user1 + '.pdf', 'rb')
+
+                question2 = 'Would you like to open ' + user1 + '?'
+                speak(question2)
+
+                audio = r.listen(source)
+                user2 = r.recognize_google(audio).lower()                                
+
+                if 'yes' in user2:
+                    pdf_open = ('Opening ' + user1)
+                    speak(pdf_open)
+                    os.startfile('Virtual Desktop Assistant - Eve\\static\\pdf\\' +  user1 + '.pdf')
+                
+                elif 'no' in user2:
+                    pass
+
                 read = PdfFileReader(file)
-                pages = read.numPages         
+                pages = read.numPages
                 pdf_info = user1 + ' consists of ' + str(pages) + ' pages. Which page would you like me to read?'
                 speak(pdf_info)
 
                 audio = r.listen(source)
-                user2 = r.recognize_google(audio).lower()
-                page = read.getPage(int(user2))
+                user3 = r.recognize_google(audio).lower()
+                page = read.getPage(int(user3))
                 text_info = page.extractText()
                 speak(text_info)
 
-                return render_template('main.html', question1 = f'{you} {question1}', pdf = f'{eve} {pdf_info}', text = f'{eve} {text_info}', user = f'{you} {user.capitalize()}', user1 = f'{you} {user1}', user2 = f'{you} {user2}', question = f'{eve} {question}', greetings = greetings[2], info = info[0].capitalize() + '!')            
+                convo = open('Virtual Desktop Assistant - Eve/static/data/conversation_record.txt', 'a')
+                convo.write(str(eve + ' ' + question))
+                convo.write('\n')
+                convo.write(str(you + ' ' + user.capitalize()))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + question1))
+                convo.write('\n')
+                convo.write(str(you + ' ' + user1.capitalize()))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + question2))
+                convo.write('\n')
+                convo.write(str(you + ' ' + user2.capitalize()))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + pdf_open + ' ' + pdf_info))
+                convo.write('\n')
+                convo.write(str(you + ' ' + user3))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + text_info))
+                convo.write('\n')
+                convo.write('\n')
+                convo.close()
+
+            elif 'google search' in user or 'google' in user:                          
+                user = user.replace('google search', '')
+                user = user.replace('google', '')
+                pwk.search(user)
+
+                convo = open('Virtual Desktop Assistant - Eve/static/data/conversation_record.txt', 'a')
+                convo.write(str(eve + ' ' + question))
+                convo.write('\n')
+                convo.write(str(you + ' ' + user.capitalize()))
+                convo.write('\n')
+                convo.write('\n')
+                convo.close()
+
+            elif '' in user:
+                statement = 'Alright'
+                speak(statement)
+                user = user.replace('take', '')
+                user = user.replace('screenshots', '')
+                user = user.replace('to', '2')
+                user = user.replace('two', '2')
+                for i in range(int(user)):
+                    t.sleep(4)
+                    screenshot = ('Taking screenshot')
+                    speak(screenshot)
+                    t.sleep(1.5)
+                    image_name = 'screenshot-' + str(datetime.datetime.now())
+                    image_name = image_name.replace(":", "")
+                    screenshot = pyshot.grab()
+                    filepath = 'Virtual Desktop Assistant - Eve/static/screenshots/' + image_name + '.png'
+                    screenshot.save(filepath)
+                    screenshot1 = 'Screenshot taken'
+                    speak(screenshot1)
+
+                convo = open('Virtual Desktop Assistant - Eve/static/data/conversation_record.txt', 'a')
+                convo.write(str(eve + ' ' + question))
+                convo.write('\n')
+                convo.write(str(you + ' ' + user.capitalize()))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + statement))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + screenshot))
+                convo.write('\n')
+                convo.write(str(eve + ' ' + screenshot1))
+                convo.write('\n')
+                convo.write('\n')
+                convo.close()
 
             else: speak('invalid command')
 
     except sr.UnknownValueError: return render_template('main.html', greetings = greetings[2], info = info[0].capitalize() + '!')
 
-    return render_template('main.html', question = question, greetings = greetings[2], info = info[0].capitalize() + '!')
+    return render_template('main.html', greetings = greetings[2], info = info[0].capitalize() + '!')
 
 
 if __name__ == '__main__':
     webview.start()
+    # app.run(debug=True)
